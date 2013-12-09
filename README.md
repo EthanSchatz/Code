@@ -1,4 +1,4 @@
 Code
 ====
 
-Code that I have written
+A repository for the code that I have written.
