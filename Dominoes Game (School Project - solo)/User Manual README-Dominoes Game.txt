@@ -3,3 +3,4 @@ To run, first run DominoesServer.java and then DominoesClient.java for them to c
 Click+Drag to move piece that is yours. (Server = bottom dominoes, Client = top dominoes)
 Right Click to turn domino 90 degrees.
 It is assumed that both players know the rules and know to take turns.
+
