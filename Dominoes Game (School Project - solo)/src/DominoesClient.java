@@ -183,7 +183,7 @@ public class DominoesClient extends JApplet
 		alldoms = new ArrayList<ArrayList<CDomino>>();
 	      try // set up server to receive connections; process connections
 	      {
-	         client = new Socket( "169.254.47.72", 12345 ); // create ServerSocket
+	         client = new Socket( "127.0.0.1", 12345 ); // create ServerSocket
 	         
 	         while ( true ) 
 	         {
@@ -239,7 +239,7 @@ public DominoesClient(){
 		application.add(dominoes);
 		
 		 application.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-	     application.setSize( 650, 640 ); // set the desired size
+	     application.setSize( 900, 640 ); // set the desired size
 	     application.setVisible( true ); // show the frame
 	     dominoes.runClient();
 	     
@@ -247,17 +247,20 @@ public DominoesClient(){
 	
 	public void paint( Graphics g )
     {
+		
+		
 		// State Presentation, using double buffers
     	// create the back buffer
 		
 		Image backBuffer=createImage(getSize().width, getSize().height);
     	Graphics gBackBuffer=backBuffer.getGraphics();
 		// clear the back buffer
-    	gBackBuffer.setColor(Color.MAGENTA);
-	    gBackBuffer.drawLine(0,100, 900, 100);
-	    gBackBuffer.drawLine(0, 500, 900, 500);
     	gBackBuffer.setColor(Color.white);
 		gBackBuffer.clearRect(0, 0, getSize().width, getSize().height);
+		gBackBuffer.setColor(Color.MAGENTA);
+	    gBackBuffer.drawLine(0,100, 900, 100);
+	    gBackBuffer.drawLine(0, 500, 900, 500);
+	    gBackBuffer.drawLine(650, 100, 650, 500);
 		// draw the pieces to back buffer
 		for (int i=0; i<serverPieces.size(); i++) {
 			serverPieces.get(i).draw(gBackBuffer);

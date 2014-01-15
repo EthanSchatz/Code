@@ -233,6 +233,32 @@ public DominoesServer(){
     this.addMouseMotionListener(this);
 }	
 
+public void reset(){
+	BlockToBeMoved=null;
+	serverPieces = new ArrayList<CDomino>();
+	clientPieces = new ArrayList<CDomino>();
+	ArrayList<int []> sets = new ArrayList<>();
+	for (int i = 0; i < 7; i++){
+		for(int j=0;j<7;j++){
+			int[] set = {i,j};
+			sets.add(set);}}
+	Collections.shuffle(sets);
+	for(int i=0;i<7;i++){
+		CDomino a= new CDomino(72+(i*80),50,sets.get(i)[0],sets.get(i)[1],"client",i);
+		a.setPosition(1);
+		a.setshow(false);
+		clientPieces.add(a);
+		}
+	for(int i=7;i<14;i++){
+		CDomino a = new CDomino(72+((i-7)*80),550,sets.get(i)[0],sets.get(i)[1],"server",i);
+		a.setPosition(1);
+		a.setshow(true);
+		serverPieces.add(a);
+		}
+	sendData();
+	repaint();
+}
+
 	
 	
 	
@@ -244,7 +270,7 @@ public DominoesServer(){
 		application.add(dominoes);
 		
 		 application.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-	     application.setSize( 650, 640 ); // set the desired size
+	     application.setSize( 900, 640 ); // set the desired size
 	     application.setVisible( true ); // show the frame
 	     dominoes.runServer();
 	     
@@ -252,6 +278,7 @@ public DominoesServer(){
 	
 	public void paint( Graphics g )
     {
+		
 		// State Presentation, using double buffers
     	// create the back buffer
     	Image backBuffer=createImage(getSize().width, getSize().height);
@@ -259,6 +286,10 @@ public DominoesServer(){
 		// clear the back buffer
 		gBackBuffer.setColor(Color.white);
 		gBackBuffer.clearRect(0, 0, getSize().width, getSize().height);
+		gBackBuffer.setColor(Color.MAGENTA);
+	    gBackBuffer.drawLine(0,100, 900, 100);
+	    gBackBuffer.drawLine(0, 500, 900, 500);
+	    gBackBuffer.drawLine(650, 100, 650, 500);
 		// draw the pieces to back buffer
 		for (int i=0; i<serverPieces.size(); i++) {
 			serverPieces.get(i).draw(gBackBuffer);
@@ -347,6 +378,11 @@ public DominoesServer(){
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		//Press "r" to reset the board
+		if (e.getKeyCode()==KeyEvent.VK_R){
+			reset();
+		}
+		
 	}
 
 	@Override
