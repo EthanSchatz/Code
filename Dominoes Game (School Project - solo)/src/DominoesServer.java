@@ -4,6 +4,7 @@
  * Ethan Schatzline
  * The server class for dominoes
  * Click+Drag to move dominoes, Right Click to rotate 90 degrees
+ * Press "r" to reset the game
  * Your dominoes are the bottom dominoes.
  */
 
