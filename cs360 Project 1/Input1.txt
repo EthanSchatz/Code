@@ -1,0 +1,16 @@
+a = {}
+b = {2*3,7,1*4,5*0,1*2}
+c = b
+d = {2*5,1*2,9}
+e = b ^ d
+b *= 3
+b = b * 3
+g += c
+g = c + d
+xyz = c & d
+xyz &= c
+c |= d
+c = c | d
+xyz = xyz + e
+xyz += d
+d = e * 4
