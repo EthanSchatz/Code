@@ -5,3 +5,11 @@ Right Click to turn domino 90 degrees.
 to reset the game, press "r" while clicked on the server window. It will reset both sides' dominoes. Only the server is able to call reset.
 It is assumed that both players know the rules and know to take turns.
 
+
+
+
+
+
+
+
+
