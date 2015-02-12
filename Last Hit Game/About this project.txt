@@ -1,8 +1,6 @@
 This project is not completed because I could not
-figure out how to add in minions with health bars
-that could lose health when clicked on.
+figure out how to add in minions with health bars that could lose health when clicked on.
 
 but this game was going to be to help "last hitting"
 in League of Legends. you can click on the two items
-and notice that your "attack damage" changes and
-the items are selected.
+and notice that your "attack damage" changes and the items are selected.
