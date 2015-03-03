@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+    canvas { background: rgb(100,100,255);
+      width: 80%; height: 100%;}
+</style>
+<title>Ethan Schatzline, CS435, Project #3</title>
+<button id = "Button1">Increase theta</button>
+<button id = "Button2">Decrease theta</button>
+<button id = "Button3">Increase phi</button>
+<button id = "Button4">Decrease phi</button> Or click and drag to rotate!
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
+varying vec4 fColor;
+
+uniform mat4 modelView;
+uniform mat4 projection;
+
+void main() 
+{
+    gl_Position = projection*modelView*vPosition;
+    fColor = vColor;
+    gl_PointSize = 30.0;
+} 
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+
+void
+main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="sign.js"></script>
+
+<body>
+<canvas id="gl-canvas" width="800" height="800">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+<select id="Menu" size="3">
+    <option value="0">REGULAR</option>
+    <option value="1">PLUS</option>
+    <option value="2">PREMIUM</option>
+</select>
+<button id = "Button5">Up</button>
+<button id = "Button6">Down</button>
+<p></p>
+Click and drag to rotate!
+<div id="fps"></div>
+</body>
+</html>
